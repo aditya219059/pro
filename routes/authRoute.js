@@ -1,6 +1,6 @@
 const express = require('express');
 const { registerController, loginController, testController } = require('../controllers/authController');
-const { requierSign, isAdmin } = require('../middlewares/authMiddleware');
+const { requireSign, isAdmin } = require('../middlewares/authMiddleware');
 
 
 const router = express.Router();
@@ -12,6 +12,11 @@ router.post('/register', registerController)
 router.post('/login', loginController)
 
 //Test route
-router.get('/test', requierSign, isAdmin, testController)
+router.get('/test', requireSign, isAdmin, testController)
+
+//protected route auth
+router.get('/user-auth', requireSign, (req, res) => {
+    res.status(200).send({ ok:true});
+})
 
 module.exports = router

@@ -3,8 +3,8 @@ import { Layout } from '../../components/Layout/Layout'
 
 export const Dashboard = () => {
   return (
-    <Layout>
-        dashboard
+    <Layout title={"Dashboard - Ecommerce"}>
+        Dashboard
     </Layout>
   )
 }

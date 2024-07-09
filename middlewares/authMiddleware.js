@@ -2,7 +2,7 @@ const JWT = require('jsonwebtoken');
 const userModel = require('../models/userModel');
 
 //Protected Routes token base
-const requierSign = async (req, res, next) => {
+const requireSign = async (req, res, next) => {
     try {
         const decode = JWT.verify(req.headers.authorization, process.env.JWT_SECRET);
         req.user = decode;
@@ -36,4 +36,4 @@ const isAdmin = async (req, res, next) => {
     }
 }
 
-module.exports = { requierSign, isAdmin }
+module.exports = { requireSign, isAdmin }
