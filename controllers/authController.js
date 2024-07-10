@@ -5,7 +5,7 @@ const JWT = require("jsonwebtoken");
 //Register router
 const registerController = async (req, res) => {
   try {
-    const { name, email, password, phone, address } = req.body;
+    const { name, email, password, phone, address, answer } = req.body;
 
     //Validation
     if (!name) {
@@ -22,6 +22,9 @@ const registerController = async (req, res) => {
     }
     if (!address) {
       return res.send({ message: "Address is required" });
+    }
+    if (!answer) {
+      return res.send({ message: "Answer is required" });
     }
 
     const existingUser = await userModel.findOne({ email });
@@ -41,6 +44,7 @@ const registerController = async (req, res) => {
       phone,
       address,
       password: hashedPass,
+      answer
     }).save();
 
     res.status(201).send({
@@ -115,10 +119,50 @@ const loginController = async (req, res) => {
   }
 };
 
+//forgotPasswordController
+const forgotPasswordController = async (req, res) => {
+  try {
+    const { email, answer, newPassword } = req.body;
+    if(!email) {
+      res.status(400).send({message: 'Email is required'})
+    }
+    if(!answer) {
+      res.status(400).send({message: 'Answer is required'})
+    }
+    if(!newPassword) {
+      res.status(400).send({message: 'New Password is required'})
+    }
+
+    //Check 
+
+    const user = await userModel.findOne({email, answer});
+    //validation
+    if(!user) {
+      return res.status(404).send({
+        success: false,
+        message: 'Wrong Email or Answer'
+      })
+    }
+    const hashed = await hashPass(newPassword);
+    await userModel.findByIdAndUpdate(user._id, {password: hashed});
+    res.status(200).send({
+      success: true,
+      message: 'Password Reset Successfully',
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: 'Something went wrong',
+      error
+    })
+  }
+}
+
 //Test router
 const testController = (req, res) => {
   console.log("Protected Route");
   res.send("Protected Route");
 };
 
-module.exports = { registerController, loginController, testController };
+module.exports = { registerController, loginController, testController, forgotPasswordController };

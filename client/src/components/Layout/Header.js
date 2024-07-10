@@ -8,14 +8,16 @@ export const Header = () => {
   const [auth, setAuth] = useAuth();
   const handlelogout = () => {
     setAuth({
-      ...auth, user:null, token:''
-    })
-    localStorage.removeItem('auth');
-    
+      ...auth,
+      user: null,
+      token: "",
+    });
+    localStorage.removeItem("auth");
+
     setTimeout(() => {
-      toast.success('Logout Successfully')
+      toast.success("Logout Successfully");
     }, 300);
-  }
+  };
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -60,14 +62,32 @@ export const Header = () => {
                   </li>
                 </>
               ) : (
-                <li className="nav-item">
-                  <NavLink
-                    onClick={handlelogout}
-                    to="/login"
-                    className="nav-link"
+                <li className="nav-item dropdown">
+                  <a
+                    className="nav-link dropdown-toggle"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    href="#"
                   >
-                    Logout
-                  </NavLink>
+                    {auth?.user?.name}
+                  </a>
+                  <ul className="dropdown-menu">
+                    <li>
+                      <NavLink to="/dashboard" className="dropdown-item">
+                        Dashboard
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        onClick={handlelogout}
+                        to="/login"
+                        className="dropdown-item"
+                      >
+                        Logout
+                      </NavLink>
+                    </li>
+                  </ul>
                 </li>
               )}
               <li className="nav-item">

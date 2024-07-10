@@ -14,6 +14,7 @@ export const Spinner = () => {
       navigate("/login", {
         state: location.pathname,
       });
+      // console.log('pathname: ', location.pathname)
     return () => clearInterval(interval);
   }, [count, navigate, location]);
 

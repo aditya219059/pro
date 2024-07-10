@@ -123,3 +123,11 @@ Navbar CSS
   justify-content: center;
   height: 70vh;
 }
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+}
