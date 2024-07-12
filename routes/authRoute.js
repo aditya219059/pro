@@ -1,11 +1,11 @@
-const express = require("express");
-const {
+import express from "express";
+import {
   registerController,
   loginController,
   testController,
   forgotPasswordController,
-} = require("../controllers/authController");
-const { requireSign, isAdmin } = require("../middlewares/authMiddleware");
+} from "../controllers/authController.js";
+import { isAdmin, requireSign } from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
 
@@ -26,4 +26,4 @@ router.get("/user-auth", requireSign, (req, res) => {
   res.status(200).send({ ok: true });
 });
 
-module.exports = router;
+export default router;

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-
-export const Spinner = () => {
-  const [count, setCount] = useState(2);
+import { useNavigate, useLocation } from "react-router-dom";
+const Spinner = () => {
+  const [count, setCount] = useState(5);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -14,17 +13,15 @@ export const Spinner = () => {
       navigate("/login", {
         state: location.pathname,
       });
-      // console.log('pathname: ', location.pathname)
     return () => clearInterval(interval);
   }, [count, navigate, location]);
-
   return (
     <>
       <div
         className="d-flex flex-column justify-content-center align-items-center"
         style={{ height: "100vh" }}
       >
-        <h1 className="text-center">Redirecting you in {count} second</h1>
+        <h1 className="Text-center">redirecting to you in {count} second </h1>
         <div className="spinner-border" role="status">
           <span className="visually-hidden">Loading...</span>
         </div>
@@ -32,3 +29,5 @@ export const Spinner = () => {
     </>
   );
 };
+
+export default Spinner;

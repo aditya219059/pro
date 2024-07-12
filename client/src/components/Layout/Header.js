@@ -4,7 +4,7 @@ import { FiShoppingCart } from "react-icons/fi";
 import { useAuth } from "../../context/auth";
 import toast from "react-hot-toast";
 
-export const Header = () => {
+const Header = () => {
   const [auth, setAuth] = useAuth();
   const handlelogout = () => {
     setAuth({
@@ -102,3 +102,5 @@ export const Header = () => {
     </>
   );
 };
+
+export default Header;

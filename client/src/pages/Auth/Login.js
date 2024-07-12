@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Layout } from "../../components/Layout/Layout";
-import toast from "react-hot-toast";
+import Layout from "../../components/Layout/Layout";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
+import toast from "react-hot-toast";
 import { useAuth } from "../../context/auth";
 
-export const Login = () => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [auth, setAuth] = useAuth();
@@ -13,22 +13,28 @@ export const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  //Form function
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(
-        `${process.env.REACT_APP_API}/api/v1/auth/login`,
-        { email, password }
-      );
+      const res = await axios.post("/api/v1/auth/login", {
+        email,
+        password,
+      });
       if (res && res.data.success) {
-        setAuth({ ...auth, user: res.data.user, token: res.data.token });
+        toast.success(res.data && res.data.message);
+        setAuth({
+          ...auth,
+          user: res.data.user,
+          token: res.data.token,
+        });
         localStorage.setItem("auth", JSON.stringify(res.data));
         navigate(location.state || "/");
         // console.log('state: ',location.state);
 
-        setTimeout(() => {
-          toast.success(res.data && res.data.message);
-        }, 300);
+        // setTimeout(() => {
+
+        // }, 300);
       } else {
         toast.error(res.data.message);
       }
@@ -86,3 +92,5 @@ export const Login = () => {
     </Layout>
   );
 };
+
+export default Login;

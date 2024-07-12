@@ -1,10 +1,10 @@
 import React from 'react'
-import { Header } from './Header'
-import { Footer } from './Footer'
+import Header from './Header'
+import Footer from './Footer'
 import { Helmet } from 'react-helmet'
 import { Toaster } from 'react-hot-toast';
 
-export const Layout = ({children, title, description, keyword, author}) => {
+const Layout = ({children, title, description, keyword, author}) => {
   return (
     <>
       <Helmet>
@@ -30,3 +30,5 @@ Layout.defaultProps = {
   keyword: "MERN",
   author: "MINE"
 }
+
+export default Layout;

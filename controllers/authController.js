@@ -1,9 +1,9 @@
-const { hashPass, comparePass } = require("../helpers/authHelper");
-const userModel = require("../models/userModel");
-const JWT = require("jsonwebtoken");
+import userModel from "../models/userModel.js";
+import { hashPass, comparePass } from "../helpers/authHelper.js";
+import JWT from "jsonwebtoken";
 
 //Register router
-const registerController = async (req, res) => {
+export const registerController = async (req, res) => {
   try {
     const { name, email, password, phone, address, answer } = req.body;
 
@@ -26,7 +26,7 @@ const registerController = async (req, res) => {
     if (!answer) {
       return res.send({ message: "Answer is required" });
     }
-
+    //Check user
     const existingUser = await userModel.findOne({ email });
     //Existing user
     if (existingUser) {
@@ -44,7 +44,7 @@ const registerController = async (req, res) => {
       phone,
       address,
       password: hashedPass,
-      answer
+      answer,
     }).save();
 
     res.status(201).send({
@@ -63,7 +63,7 @@ const registerController = async (req, res) => {
 };
 
 // Login router
-const loginController = async (req, res) => {
+export const loginController = async (req, res) => {
   try {
     const { email, password } = req.body;
     //validation
@@ -102,6 +102,7 @@ const loginController = async (req, res) => {
       success: true,
       message: "Login successfully",
       user: {
+        _id: user._id,
         name: user.name,
         email: user.email,
         phone: user.phone,
@@ -120,7 +121,7 @@ const loginController = async (req, res) => {
 };
 
 //forgotPasswordController
-const forgotPasswordController = async (req, res) => {
+export const forgotPasswordController = async (req, res) => {
   try {
     const { email, answer, newPassword } = req.body;
     if(!email) {
@@ -160,9 +161,12 @@ const forgotPasswordController = async (req, res) => {
 }
 
 //Test router
-const testController = (req, res) => {
-  console.log("Protected Route");
-  res.send("Protected Route");
+export const testController = (req, res) => {
+  try {
+    res.send("Protected Route");
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
 };
 
-module.exports = { registerController, loginController, testController, forgotPasswordController };

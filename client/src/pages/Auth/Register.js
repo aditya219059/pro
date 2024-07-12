@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Layout } from "../../components/Layout/Layout";
-import toast from "react-hot-toast";
+import Layout from "../../components/Layout/Layout";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
-export const Register = () => {
+const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -16,19 +16,21 @@ export const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(
-        `${process.env.REACT_APP_API}/api/v1/auth/register`,
-        { name, email, phone, address, password, answer }
-      );
+      const res = await axios.post("/api/v1/auth/register", {
+          name,
+          email,
+          phone,
+          address,
+          password,
+          answer,
+        });
       if (res && res.data.success) {
+        toast.success(res.data && res.data.message);
         navigate("/login");
 
-        setTimeout(() => {
-          toast.success(res.data && res.data.message);
-        }, 1000);
-
-      }
-      else {
+        // setTimeout(() => {
+        // }, 1000);
+      } else {
         toast.error(res.data.message);
       }
     } catch (error) {
@@ -117,3 +119,5 @@ export const Register = () => {
     </Layout>
   );
 };
+
+export default Register;
