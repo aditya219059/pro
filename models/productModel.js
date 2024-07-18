@@ -19,7 +19,7 @@ const productSchema = new Schema({
     },
     category: {
         type: mongoose.ObjectId,
-        ref: 'Category',
+        ref: 'category',
         require: true
     },
     quantity: {

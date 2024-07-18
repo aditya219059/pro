@@ -21,6 +21,7 @@ router.put(
   "/update-product/:pid",
   requireSign,
   isAdmin,
+  formidable(),
   updateProductController
 );
 
@@ -33,11 +34,15 @@ router.get("/single-product/:slug", singleProductController);
 //Get Product Photo
 router.get("/single-product/:pid", productPhotoController);
 
+//Product photo
+router.get("/product-photo/:pid", productPhotoController);
+
 //Delete Product
 router.delete(
   "/delete-product/:pid",
   requireSign,
   isAdmin,
+  formidable(),
   deleteProductController
 );
 
