@@ -4,8 +4,10 @@ import Layout from "../../components/Layout/Layout";
 import axios from "axios";
 import toast from "react-hot-toast";
 import CategoryForm from "../../components/Form/CategoryForm.js";
+import { Button, Modal } from 'antd';
 
 const CreateCategory = () => {
+  const [visible, setVisible] = useState(false);
   const [categories, setCategories] = useState([]);
   const [name, setName] = useState("");
 
@@ -71,8 +73,11 @@ const CreateCategory = () => {
                       <tr>
                         <td key={c._id}>{c.name}</td>
                         <td>
-                          <button className="btn btn-primary" key={c._id}>
+                          <button className="btn btn-primary ms-2" key={c._id}>
                             Edit
+                          </button>
+                          <button className="btn btn-danger ms-2" key={c._id}>
+                            Delete
                           </button>
                         </td>
                       </tr>
@@ -81,6 +86,7 @@ const CreateCategory = () => {
                 </tbody>
               </table>
             </div>
+            <Modal onCancel={() => setVisible(false)}></Modal>
           </div>
         </div>
       </div>

@@ -16,11 +16,11 @@ const Header = () => {
 
     setTimeout(() => {
       toast.success("Logout Successfully");
-    }, 300);
+    }, 700);
   };
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
         <div className="container-fluid">
           <button
             className="navbar-toggler"
