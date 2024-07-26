@@ -131,3 +131,8 @@ Navbar CSS
   justify-content: center;
   height: 70vh;
 }
+
+.product_link {
+  text-decoration: none !important;
+  color: #000000 !important;
+}

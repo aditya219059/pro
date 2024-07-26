@@ -31,9 +31,6 @@ router.get("/get-product", productController);
 //Get single product
 router.get("/single-product/:slug", singleProductController);
 
-//Get Product Photo
-router.get("/single-product/:pid", productPhotoController);
-
 //Product photo
 router.get("/product-photo/:pid", productPhotoController);
 
