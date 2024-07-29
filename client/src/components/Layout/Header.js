@@ -35,7 +35,7 @@ const Header = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <Link to="/" className="navbar-brand" href="#">
-              <FiShoppingCart /> Ecommerce app
+              <FiShoppingCart style={{marginRight: "10px", marginTop: "3px"}} /> Ecommerce app
             </Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">

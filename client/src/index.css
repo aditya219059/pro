@@ -136,3 +136,11 @@ Navbar CSS
   text-decoration: none !important;
   color: #000000 !important;
 }
+
+main {
+  margin-top: 60px !important;
+}
+.navbar-brand{
+  display: flex;
+}
+
