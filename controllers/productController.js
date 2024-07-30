@@ -199,4 +199,4 @@ export const productFilterController = async (req, res) => {
       error
     })
   }
-}
+};
