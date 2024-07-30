@@ -4,6 +4,7 @@ import {
   createProductController,
   deleteProductController,
   productController,
+  productFilterController,
   productPhotoController,
   singleProductController,
   updateProductController,
@@ -42,5 +43,8 @@ router.delete(
   formidable(),
   deleteProductController
 );
+
+//Product filter 
+router.post("/product-filter", productFilterController)
 
 export default router;
