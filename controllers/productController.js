@@ -182,22 +182,22 @@ export const deleteProductController = async (req, res) => {
 //Product filter controller
 export const productFilterController = async (req, res) => {
   try {
-    const {checked, radio} = req.body;
+    const { checked, radio } = req.body;
     let args = {};
-    if(checked.length > 0) args.category = checked;
-    if(radio.length) args.price = { $gte: radio[0], $lte: radio[1] };
+    if (checked.length > 0) args.category = checked;
+    if (radio.length) args.price = { $gte: radio[0], $lte: radio[1] };
     const products = await productModel.find(args);
     res.status(200).send({
       success: true,
       products,
-    })
+    });
   } catch (error) {
     console.log(error);
     res.status(400).send({
       success: false,
       message: "Error while filtering product",
-      error
-    })
+      error,
+    });
   }
 };
 
@@ -207,34 +207,62 @@ export const productCountController = async (req, res) => {
     const total = await productModel.find({}).estimatedDocumentCount();
     res.status(200).send({
       success: true,
-      total
-    })
+      total,
+    });
   } catch (error) {
     console.log(error);
     res.status(400).send({
       succes: false,
       message: "Error in Product Count",
-      error
-    })
+      error,
+    });
   }
-}
+};
 
 //Product List controller
 export const productListController = async (req, res) => {
   try {
-    const perPage = 6;
+    const perPage = 2;
     const page = req.params.page ? req.params.page : 1;
-    const products = await productModel.find({}).select("-photo").skip((page-1)*perPage).limit(perPage).sort({createdAt: -1});
+    const products = await productModel
+      .find({})
+      .select("-photo")
+      .skip((page - 1) * perPage)
+      .limit(perPage)
+      .sort({ createdAt: -1 });
     res.status(200).send({
       success: true,
-      products
-    })
+      products,
+    });
   } catch (error) {
     console.log(error);
     res.status(400).send({
       succes: false,
       message: "Error in Product List",
-      error
-    })
+      error,
+    });
   }
-}
+};
+
+//Search Product Controller
+export const searchProductController = async (req, res) => {
+  try {
+    const { keyword } = req.params;
+    const result = await productModel
+      .find({
+        $or: [
+          { name: { $regex: `${keyword}`, $options: "i" } },
+          { description: { $regex: `${keyword}`, $options: "i" } },
+        ],
+      })
+      .select("-photo");
+    res.json(result);
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({
+      succces: true,
+      message: "Error in search API",
+      error,
+    });
+  }
+};

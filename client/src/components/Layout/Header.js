@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi";
 import { useAuth } from "../../context/auth";
 import toast from "react-hot-toast";
+import SearchInput from "../Form/SearchInput";
 
 const Header = () => {
   const [auth, setAuth] = useAuth();
@@ -38,6 +39,7 @@ const Header = () => {
               <FiShoppingCart style={{marginRight: "10px", marginTop: "3px"}} /> Ecommerce app
             </Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+              <SearchInput />
               <li className="nav-item">
                 <NavLink to="/" className="nav-link">
                   Home
