@@ -22,7 +22,6 @@ const Login = () => {
         password,
       });
       if (res && res.data.success) {
-        toast.success(res.data && res.data.message);
         setAuth({
           ...auth,
           user: res.data.user,
@@ -31,10 +30,11 @@ const Login = () => {
         localStorage.setItem("auth", JSON.stringify(res.data));
         navigate(location.state || "/");
         // console.log('state: ',location.state);
+        
+        setTimeout(() => {
+          toast.success(res.data && res.data.message);
 
-        // setTimeout(() => {
-
-        // }, 300);
+        }, 300);
       } else {
         toast.error(res.data.message);
       }
