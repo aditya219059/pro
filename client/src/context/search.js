@@ -5,7 +5,7 @@ const Searchcontext = createContext();
 const SearchProvider = ({ children }) => {
   const [auth, setAuth] = useState({
     keyword: "",
-    result: [],
+    results: [],
   });
 
   return (
