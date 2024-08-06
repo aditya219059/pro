@@ -1,6 +1,6 @@
 import { useState, useContext, createContext } from "react";
 
-const Searchcontext = createContext();
+const SearchContext = createContext();
 
 const SearchProvider = ({ children }) => {
   const [auth, setAuth] = useState({
@@ -9,12 +9,12 @@ const SearchProvider = ({ children }) => {
   });
 
   return (
-    <Searchcontext.Provider value={[auth, setAuth]}>
+    <SearchContext.Provider value={[auth, setAuth]}>
       {children}
-    </Searchcontext.Provider>
+    </SearchContext.Provider>
   );
 };
 
-const useSearch = () => useContext(Searchcontext);
+const useSearch = () => useContext(SearchContext);
 
 export { useSearch, SearchProvider };

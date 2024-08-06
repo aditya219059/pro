@@ -260,7 +260,7 @@ export const searchProductController = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(400).send({
-      succces: true,
+      succces: false,
       message: "Error in search API",
       error,
     });
