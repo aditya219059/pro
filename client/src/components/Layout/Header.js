@@ -4,8 +4,12 @@ import { FiShoppingCart } from "react-icons/fi";
 import { useAuth } from "../../context/auth";
 import toast from "react-hot-toast";
 import SearchInput from "../Form/SearchInput";
+import useCategories from "../../hooks/useCategories";
+import { useCart } from "../../context/cart";
 
 const Header = () => {
+  const categories = useCategories();
+  const [cart] = useCart();
   const [auth, setAuth] = useAuth();
   const handlelogout = () => {
     setAuth({
@@ -36,7 +40,10 @@ const Header = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <Link to="/" className="navbar-brand" href="#">
-              <FiShoppingCart style={{marginRight: "10px", marginTop: "3px"}} /> Ecommerce app
+              <FiShoppingCart
+                style={{ marginRight: "10px", marginTop: "3px" }}
+              />{" "}
+              Ecommerce app
             </Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <SearchInput />
@@ -45,10 +52,25 @@ const Header = () => {
                   Home
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink to="/category" className="nav-link">
-                  Category
-                </NavLink>
+              <li className="nav-item dropdown">
+                <Link to={"/categories"} className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Categories
+                </Link>
+                <ul className="dropdown-menu">
+                  <li>
+                    <Link className="dropdown-item"  to={"/categories"}>All Categories</Link>
+                  </li>
+                  {categories?.map((c) => (
+                    <li>
+                      <Link
+                        className="dropdown-item"
+                        to={`/category/${c.slug}`}
+                      >
+                        {c.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </li>
               {!auth.user ? (
                 <>
@@ -76,7 +98,12 @@ const Header = () => {
                   </a>
                   <ul className="dropdown-menu">
                     <li>
-                      <NavLink to={`/dashboard/${auth?.user?.role === 1? "admin" : "user"}`} className="dropdown-item">
+                      <NavLink
+                        to={`/dashboard/${
+                          auth?.user?.role === 1 ? "admin" : "user"
+                        }`}
+                        className="dropdown-item"
+                      >
                         Dashboard
                       </NavLink>
                     </li>
@@ -94,7 +121,7 @@ const Header = () => {
               )}
               <li className="nav-item">
                 <NavLink to="/cart" className="nav-link">
-                  cart (0)
+                  cart ({cart?.length})
                 </NavLink>
               </li>
             </ul>

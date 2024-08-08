@@ -1,6 +1,7 @@
 import productModel from "../models/productModel.js";
 import slugify from "slugify";
 import fs from "fs";
+import categoryModel from "../models/categoryModel.js";
 
 //Create product
 export const createProductController = async (req, res) => {
@@ -266,3 +267,45 @@ export const searchProductController = async (req, res) => {
     });
   }
 };
+
+//Similar Product Controller
+export const similarProductController = async (req, res) => {
+  try {
+    const {pid, cid} = req.params;
+    const products = await productModel.find({
+      category: cid,
+      _id: { $ne: pid },
+    }).select("-photo").limit(3).populate("category");
+    res.status(200).send({
+      success: true,
+      products,
+    });
+  } catch (error) {
+    consol.log(error);
+    res.status(400).send({
+      success: false,
+      message: "Error While Getting Similar Product",
+      error,
+    })
+  }
+}
+
+//Category Product Controller
+export const categoryProductController = async (req,res) => {
+  try {
+    const category = await categoryModel.findOne({slug: req.params.slug});
+    const products = await productModel.find({category}).populate("category");
+    res.status(200).send({
+      success: true,
+      category,
+      products,
+    })
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({
+      success: false,
+      error,
+      message: "Error While Getting Products"
+    })
+  }
+}
