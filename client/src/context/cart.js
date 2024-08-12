@@ -1,12 +1,17 @@
-import { useState, useContext, createContext } from "react";
+import { useState, useContext, createContext, useEffect } from "react";
 
 const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
-  const [auth, setAuth] = useState([]);
+  const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    let existingcart = localStorage.getItem("cart");
+    if(existingcart) setCart(JSON.parse(existingcart));
+  }, []);
 
   return (
-    <CartContext.Provider value={[auth, setAuth]}>
+    <CartContext.Provider value={[cart, setCart]}>
       {children}
     </CartContext.Provider>
   );

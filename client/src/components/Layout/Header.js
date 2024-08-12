@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import SearchInput from "../Form/SearchInput";
 import useCategories from "../../hooks/useCategories";
 import { useCart } from "../../context/cart";
+import { Badge } from "antd";
 
 const Header = () => {
   const categories = useCategories();
@@ -120,9 +121,11 @@ const Header = () => {
                 </li>
               )}
               <li className="nav-item">
+                <Badge count={cart?.length} showZero>
                 <NavLink to="/cart" className="nav-link">
-                  cart ({cart?.length})
+                  cart
                 </NavLink>
+                </Badge>
               </li>
             </ul>
           </div>
