@@ -171,3 +171,36 @@ export const testController = (req, res) => {
   }
 };
 
+//Update profile controller
+export const updateProfileController = async (req, res) => {
+  try {
+    const {name, email, password, address, phone} = req.body;
+    const user = await userModel.findById(req.user._id);
+    //password
+    if(password && password < 3) {
+      return res.json({error: "Atleast 3 character long password is required"})
+    }
+    //Hash Password
+    const hashedPass = password ? await hashPass(password) : undefined; 
+    const updatedUser = await userModel.findByIdAndUpdate(req.user._id, {
+      name: name || user.name,
+      password: hashedPass || user.password,
+      phone: phone || user.phone,
+      address: address || user.address
+    }, {new: true})
+
+    res.status(200).send({
+      success: true,
+      message: "Updated profile successfully",
+      updatedUser
+    })
+
+  } catch (error) {
+    console.log(error)
+    res.status(400).send({
+      success: false,
+      message: "Error while Updating Profile",
+      error
+    })
+  }
+}

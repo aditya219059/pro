@@ -25,18 +25,23 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/register`, {
+      const {data} = await axios.put(`${process.env.REACT_APP_API}/api/v1/auth/profile`, {
           name,
           email,
           phone,
           address,
           password,
         });
-      if (res && res.data.success) {
-        toast.success(res.data && res.data.message);
+      if (data?.error) {
+        toast.error(data?.error);
 
       } else {
-        toast.error(res.data.message);
+        setAuth({...auth, user: data?.updatedUser});
+        let ls = localStorage.getItem("auth");
+        ls = JSON.parse(ls);
+        ls.user = data.updatedUser;
+        localStorage.setItem("auth", JSON.stringify(ls));
+        toast.success("Profile Updated succesfully")
       }
     } catch (error) {
       console.log(error);
@@ -63,7 +68,7 @@ const Profile = () => {
                     placeholder="Enter your name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    required
+                    
                   />
                 </div>
                 <div className="mb-3">
@@ -74,7 +79,7 @@ const Profile = () => {
                     placeholder="Enter your email address"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    required
+                    
                     disabled
                   />
                 </div>
@@ -86,7 +91,7 @@ const Profile = () => {
                     placeholder="Phone No."
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    required
+                    
                   />
                 </div>
                 <div className="mb-3">
@@ -97,7 +102,7 @@ const Profile = () => {
                     placeholder="Address"
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
-                    required
+                    
                   />
                 </div>
                 <div className="mb-3">
@@ -108,7 +113,7 @@ const Profile = () => {
                     placeholder="Enter your password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    required
+                    
                   />
                 </div>
 
