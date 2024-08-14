@@ -47,7 +47,7 @@ const CartPage = () => {
   //payment gateway token
   const getToken = async () => {
     try {
-      const { data } = axios.get(
+      const { data } = await axios.get(
         `${process.env.REACT_APP_API}/api/v1/product/braintree/token`
       );
       setClientToken(data?.clientToken);
@@ -103,7 +103,7 @@ const CartPage = () => {
         <div className="row">
           <div className="col-md-8">
             {cart?.map((p) => (
-              <div className="row mb-2 p-3 card flex-row">
+              <div className="row mb-2 p-3 card flex-row" key={p._id}>
                 <div className="col-md-4">
                   <img
                     className="card-img-top"
@@ -168,7 +168,7 @@ const CartPage = () => {
             )}
             <div className="mt-2">
               {!clientToken || !cart?.length ? (
-                ""
+                clientToken
               ) : (
                 <>
                   <DropIn
