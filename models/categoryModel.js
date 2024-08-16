@@ -3,8 +3,8 @@ import mongoose, { Schema } from "mongoose";
 const categorySchema = new Schema({
     name: {
         type: String,
-        required: true,
-        unique: true
+        // required: true,
+        // unique: true
     },
     slug: {
         type: String,
@@ -12,4 +12,4 @@ const categorySchema = new Schema({
     },
 });
 
-export default mongoose.model("category", categorySchema);
+export default mongoose.model("Category", categorySchema);

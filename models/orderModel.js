@@ -4,20 +4,20 @@ const orderSchema = new Schema(
   {
     products: {
       type: mongoose.ObjectId,
-      ref: "Product",
+      ref: "Products",
     },
     payment: {},
     buyer: {
       type: mongoose.ObjectId,
-      ref: "User",
+      ref: "users",
     },
     status: {
       type: String,
       defult: "Not Process",
-      enum: ["Note Process", "Processing", "Shipped", "Delivered", "Cancel"],
+      enum: ["Not Process", "Processing", "Shipped", "Delivered", "Cancel"],
     },
   },
   { timestamps: true }
 );
 
-export default mongoose.model("order", orderSchema);
+export default mongoose.model("Order", orderSchema);
