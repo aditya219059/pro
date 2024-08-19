@@ -2,10 +2,12 @@ import mongoose, { Schema } from "mongoose";
 
 const orderSchema = new Schema(
   {
-    Products: {
-      type: mongoose.ObjectId,
-      ref: "Products",
-    },
+    products: [
+      {
+        type: mongoose.ObjectId,
+        ref: "Products",
+      },
+    ],
     payment: {},
     buyer: {
       type: mongoose.ObjectId,
@@ -13,7 +15,7 @@ const orderSchema = new Schema(
     },
     status: {
       type: String,
-      defult: "Not Process",
+      default: "Not Process",
       enum: ["Not Process", "Processing", "Shipped", "Delivered", "Cancel"],
     },
   },
