@@ -75,7 +75,7 @@ const CartPage = () => {
       setLoading(false);
       localStorage.removeItem("cart");
       setCart([]);
-      navigate("/dashboard/user/order");
+      navigate("/dashboard/user/orders");
       toast.success("Payment Completed Successfully");
     } catch (error) {
       console.log(error);
@@ -168,7 +168,7 @@ const CartPage = () => {
             )}
             <div className="mt-2">
               {!clientToken || !cart?.length ? (
-                clientToken
+                "Cart is empty"
               ) : (
                 <>
                   <DropIn

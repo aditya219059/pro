@@ -1,6 +1,6 @@
 import React from 'react'
-import UserMenu from '../../components/Layout/UserMenu.js'
-import Layout from '../../components/Layout/Layout.js'
+import UserMenu from '../../components/Layout/UserMenu'
+import Layout from '../../components/Layout/Layout'
 
 const Orders = () => {
   return (
@@ -19,4 +19,4 @@ const Orders = () => {
   )
 }
 
-export default Orders
+export default Orders;
