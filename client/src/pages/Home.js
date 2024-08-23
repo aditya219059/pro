@@ -156,28 +156,28 @@ const Home = () => {
         </div>
         <div className="col-md-9">
           <h1 className="text-center">All Products</h1>
-          <div className="d-flex flex-wrap">
+          <div className="d-flex flex-wrap neon__container">
             {products?.map((p) => (
-              <div className="card m-2" style={{ width: "18rem" }} key={p._id}>
+              <div className="card neon__card" style={{ width: "18rem", height: "40rem" }} key={p._id}>
                 <img
-                  className="card-img-top"
+                  className=""
                   src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                   alt={p.name}
                 />
                 <div className="card-body">
-                  <h5 className="card-title">{p.name}</h5>
-                  <p className="card-text">
+                  <h6 className="card-title neon__title">{p.name}</h6>
+                  <p className="card-text neon__description">
                     {p.description.substring(0, 30)}...
                   </p>
-                  <p className="card-text">$ {p.price}</p>
+                  <p className="card-text neon__description">$ {p.price}</p>
                   <button
-                    className="btn btn-primary ms-1"
+                    className="btn btn-primary ms-1 neon__button"
                     onClick={() => navigate(`/product/${p.slug}`)}
                   >
                     More Details
                   </button>
                   <button
-                    className="btn btn-secondary ms-1"
+                    className="btn btn-secondary ms-1 neon__button"
                     onClick={() => {
                       setCart([...cart, p]);
                       localStorage.setItem("cart", JSON.stringify([...cart]));

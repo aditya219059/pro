@@ -31,7 +31,18 @@
 /*
 Navbar CSS
 */
+:root{
+  --body-color: #020318;
+  --text-color: #fff;
 
+  --body-font: "Poppins", sans-serif;
+  --biggest-font-size: 2rem;
+  --h1-font-size: 1.5rem;
+  --normal-font-size: .938rem;
+  --smaller-font-size: .75rem;
+
+  --filter-blur: 100;
+}
 .navbar{
   font-family: "Poppins", sans-serif;
   font-weight: 400;
@@ -144,3 +155,182 @@ main {
   display: flex;
 }
 
+/* 
+CARD CSS 
+FROM HERE
+UNTIIL
+335
+ */
+
+ @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400&display=swap');
+
+
+:root {
+
+    /*========== Colors ==========*/
+    --body-color: #020318;
+    --text-color-light: #FFF;
+
+    /*========== Font and typography ==========*/
+    --body-font: 'Poppins', sans-serif;
+    --biggest-font-size: 2rem;
+    --h1-font-size: 1.5rem;
+    --normal-font-size: .938rem;
+    --smaller-font-size: .75rem;
+
+    /*========== Box, Drop & Text Shadow ==========*/
+    --box-shadow-inset: inset 0 22px 56px -36px rgba(255, 255, 255, .5), 
+                        inset 0 4px 5px -4px rgba(255, 255, 255, 1), 
+                        inset 0 -31px 34px -32px rgba(96, 68, 144, .3), 
+                        inset 0 39px 50px -34px rgba(202, 172, 255, .3), 
+                        inset 0 2px 9px rgba(154, 146, 210, .3), 
+                        inset 0 1px 10px rgba(227, 222, 255, .2);
+
+    --drop-shadow: 0 0 8px rgba(161, 165, 247, .8);
+
+    --text-shadow: 0 0 8px rgba(161, 165, 247, .8);
+
+    --box-shadow-inset-button: inset 0 2px 7px -9px rgba(255, 255, 255, .5), 
+                               inset 0 1px 2px -1px rgba(255, 255, 255, 1), 
+                               inset 0 -20px 16px -32px rgba(96, 68, 144, .3), 
+                               inset 0 28px 25px -24px rgba(202, 172, 255, .3), 
+                               inset 0 1px 4px rgba(154, 146, 210, .3), 
+                               inset 0 1px 10px rgba(227, 222, 255, .2);
+
+    /*========== Box, Drop & Text Shadow Hover ==========*/
+    --box-shadow-inset-hover: inset 0 19px 28px -18px rgba(255, 255, 255, .5), 
+                              inset 0 4px 6px -3px rgba(255, 255, 255, 1), 
+                              inset 0 -51px 44px -42px rgba(96, 68, 144, .3), 
+                              inset 0 59px 60px -32px rgba(202, 172, 255, .3), 
+                              inset 0 4px 16px rgba(154, 146, 210, .3), 
+                              inset 0 2px 25px rgba(227, 222, 255, .23);
+
+    --drop-shadow-hover:  0 0 14px rgba(161, 165, 247, .8);
+
+    --text-shadow-hover: 0 0 14px rgba(161, 165, 247, .8);
+
+    --box-shadow-inset-button-hover: inset 0 4px 7px -4px rgba(255, 255, 255, .5), 
+                                     inset 0 1px 2px -1px rgba(255, 255, 255, 1), 
+                                     inset 0 -20px 16px -32px rgba(96, 68, 144, .3), 
+                                     inset 0 28px 25px -20px rgba(202, 172, 255, .3), 
+                                     inset 0 1px 4px rgba(154, 146, 210, .3), 
+                                     inset 0 1px 16px rgba(227, 222, 255, .2);
+                                     
+    /*========== Filter Blur ==========*/
+    --filter-blur: blur(100px);
+}
+
+/*========== BASE ==========*/
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color) !important;
+}
+
+h1, p {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+  .neon__container{
+    display: flex;
+    align-items: center;
+    /* grid-template-columns: repeat(auto-fit, minmax(312px, 1fr)); */
+    row-gap: 3.5rem;
+    column-gap: 2.5rem;
+  }
+
+  .neon__card {
+    background: rgba(255, 255, 255, .01) !important;
+    color: var(--text-color-light);
+    box-shadow: var(--box-shadow-inset);
+    backdrop-filter: var(--filter-blur);
+    padding: 3.5rem 1.5rem 2rem;
+    border-radius: 3rem;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .neon__icon{
+    width: 120px;
+    fill: var(--text-color-light);
+    filter: drop-shadow(var(--drop-shadow));
+    margin-bottom: .25rem;
+  }
+
+  .neon__title,
+  .neon__description{
+    text-shadow: var(--text-shadow);
+  }
+
+
+  .neon__title{
+    font-size: var(--normal-font-size);
+    margin-bottom: .25rem;
+  }
+
+  .neon__description{
+    /* text-align: initial; */
+    margin-bottom: 1.5rem;
+  }
+
+  .neon__button_b {
+    text-decoration: none;
+    box-shadow: var(--box-shadow-inset-button);
+    background: transparent;
+    width: 100%;
+    color: var(--text-color-light);
+    text-shadow: var(--text-shadow);
+    display: flex;
+    justify-content: center;
+    padding: 1.25rem;
+    border-radius: 1rem;
+}
+  .neon__button {
+    text-decoration: none;
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow-inset-button);
+    background: transparent;
+    width: 100%;
+    color: var(--text-color-light);
+    text-shadow: var(--text-shadow);
+    display: flex;
+    justify-content: center;
+    padding: 1.25rem;
+    border-radius: 1rem;
+}
+
+.neon__button:hover {
+    box-shadow: var(--box-shadow-inset-button-hover);
+}
+
+/* Card neon hover */
+.neon__card:hover {
+    box-shadow: var(--box-shadow-inset-hover);
+}
+
+.neon__card:hover .neon__icon {
+    filter: drop-shadow(var(--drop-shadow-hover));
+}
+
+.neon__card:hover .neon__title,
+.neon__card:hover .neon__description {
+    text-shadow: var(--text-shadow-hover);
+}
+
+.neon__card, 
+.neon__title, 
+.neon__description, 
+.neon__button {
+    transition: .3s;
+}
