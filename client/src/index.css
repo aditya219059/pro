@@ -281,11 +281,14 @@ a {
 
   .neon__description{
     /* text-align: initial; */
-    margin-bottom: 1.5rem;
+    /* margin-bottom: 1.5rem; */
+    font-size: var(--smaller-font-size);
+
   }
 
   .neon__button_b {
     text-decoration: none;
+    margin-top: 1rem;
     box-shadow: var(--box-shadow-inset-button);
     background: transparent;
     width: 100%;

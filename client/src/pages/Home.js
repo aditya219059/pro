@@ -158,7 +158,7 @@ const Home = () => {
           <h1 className="text-center">All Products</h1>
           <div className="d-flex flex-wrap neon__container">
             {products?.map((p) => (
-              <div className="card neon__card" style={{ width: "18rem", height: "40rem" }} key={p._id}>
+              <div className="card neon__card" style={{ width: "18rem" }} key={p._id}>
                 <img
                   className=""
                   src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
@@ -166,7 +166,7 @@ const Home = () => {
                 />
                 <div className="card-body">
                   <h6 className="card-title neon__title">{p.name}</h6>
-                  <p className="card-text neon__description">
+                  <p className="neon__description">
                     {p.description.substring(0, 30)}...
                   </p>
                   <p className="card-text neon__description">$ {p.price}</p>
