@@ -92,7 +92,7 @@ const CartPage = () => {
               {`Hello ${auth?.token && auth?.user?.name}`}
             </h1>
             <h4 className="text-center">
-              {cart?.length > 1
+              {cart?.length > 0
                 ? `You have ${cart.length} items in your cart. ${
                     auth?.token ? "" : "Please login to checkout"
                   }`
@@ -103,8 +103,8 @@ const CartPage = () => {
         <div className="row">
           <div className="col-md-8">
             {cart?.map((p) => (
-              <div className="row mb-2 p-3 card flex-row" key={p._id}>
-                <div className="col-md-4">
+              <div className="row mb-2 p-3 card flex-row" style={{backdropFilter:"blur"}} key={p._id}>
+                <div className="col-md-4 neon__card">
                   <img
                     className="card-img-top"
                     src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
