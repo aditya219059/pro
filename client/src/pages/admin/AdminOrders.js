@@ -95,7 +95,7 @@ const AdminOrders = () => {
                   </tbody>
                 </table>
                 {o?.products?.map((p, i) => (
-                  <div className="row mb-2 p-3 card flex-row" key={p._id}>
+                  <div className="row mb-2 p-3 card flex-row neon__card" key={p._id}>
                     <div className="col-md-4">
                       <img
                         className="card-img-top"
@@ -105,7 +105,7 @@ const AdminOrders = () => {
                     </div>
                     <div className="col-md-8">
                       <p>{p.name}</p>
-                      <p>{p.description.substring(0, 30)}</p>
+                      <p>{p.description}</p>
                       <p>Price : {p.price}</p>
                     </div>
                   </div>

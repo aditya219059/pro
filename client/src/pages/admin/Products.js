@@ -52,7 +52,7 @@ const Products = () => {
                   />
                   <div className="card-body">
                     <h5 className="card-title neon__title">{p.name}</h5>
-                    <p className="card-text neon__description">{p.description}</p>
+                    <p className="card-text neon__description">{p.description.substring(0,30)}...</p>
                     <br/>
                     <p className="card-text neon__description" style={{fontSize:"1rem", color:"aqua"}}>$ {p.price}</p>
                   </div>
