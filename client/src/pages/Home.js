@@ -6,6 +6,7 @@ import { Prices } from "../components/Prices";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/cart";
 import toast from "react-hot-toast";
+import { FiShoppingCart } from "react-icons/fi";
 
 const Home = () => {
   const [cart, setCart] = useCart();
@@ -170,22 +171,26 @@ const Home = () => {
                     {p.description.substring(0, 30)}...
                   </p>
                   <p className="card-text neon__description">$ {p.price}</p>
+                  <div className="butbox">
                   <button
-                    className="btn btn-primary ms-1 neon__button"
+                    className="btn btn-primary ms-1 neon__button b"
                     onClick={() => navigate(`/product/${p.slug}`)}
                   >
                     More Details
                   </button>
                   <button
-                    className="btn btn-secondary ms-1 neon__button"
+                    className="btn btn-secondary ms-1 neon__button cb"
                     onClick={() => {
                       setCart([...cart, p]);
                       localStorage.setItem("cart", JSON.stringify([...cart]));
                       toast.success("Successfully added to cart");
                     }}
                   >
-                    Add to Cart
+                    <FiShoppingCart
+                style={{ marginRight: "2px", marginTop: "4px" }}
+              />
                   </button>
+                  </div>
                 </div>
               </div>
             ))}

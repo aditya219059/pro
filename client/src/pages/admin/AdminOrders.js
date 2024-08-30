@@ -103,10 +103,10 @@ const AdminOrders = () => {
                         alt={p.name}
                       />
                     </div>
-                    <div className="col-md-8">
-                      <p>{p.name}</p>
-                      <p>{p.description}</p>
-                      <p>Price : {p.price}</p>
+                    <div className="col-md-8" style={{fontSize:"2rem"}}>
+                      <p className="neon__title" style={{fontSize:"2rem"}}>{p.name}</p>
+                      <p className="neon__description"style={{fontSize:"1rem"}}>{p.description}</p>
+                      <p className="neon__description"style={{fontSize:"1rem"}}>Price : {p.price}</p>
                     </div>
                   </div>
                 ))}
