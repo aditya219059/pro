@@ -49,12 +49,22 @@ Navbar CSS
   font-style: normal;
   font-size: 17px;
   line-height: 26px;
+  background-color: var(--body-color) !important;
   text-transform: uppercase;
   box-shadow: 0 8px 6px -6px gray;
   -webkit-box-shadow: 0 8px 6px -6px gray;
   border-bottom: 0px gray !important;
 }
-
+.form-control{
+  color: var(--text-color) !important;
+  background-color: var(--body-color) !important;
+}
+.dropdown-menu{
+  background-color: var(--body-color) !important;
+}
+.dropdown-item:hover{
+  color: var(--body-color) !important;
+}
 .nav-link {
   font-weight: 300 !important;
 }
@@ -223,6 +233,7 @@ UNTIIL
 /*========== BASE ==========*/
 *, ::before, ::after {
     box-sizing: border-box;
+    color: var(--text-color-light) !important;
 }
 
 body {

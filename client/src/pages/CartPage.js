@@ -89,7 +89,7 @@ const CartPage = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-            <h1 className="text-center bg-light p-2">
+            <h1 className="text-center p-2">
               {`Hello ${auth?.token && auth?.user?.name}`}
             </h1>
             <h4 className="text-center">
@@ -104,8 +104,8 @@ const CartPage = () => {
         <div className="row">
           <div className="col-md-8">
             {cart?.map((p) => (
-              <div className="row mb-2 p-3 card flex-row" style={{backdropFilter:"blur"}} key={p._id}>
-                <div className="col-md-4 neon__card">
+              <div className="row mb-2 p-3 card flex-row neon__card" style={{backdropFilter:"blur"}} key={p._id}>
+                <div className="col-md-4">
                   <img
                     className="card-img-top"
                     src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
