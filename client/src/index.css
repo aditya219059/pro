@@ -243,6 +243,10 @@ body {
     background-color: var(--body-color) !important;
 }
 
+Select Option{
+  background-color: var(--body-color) !important;
+  color: var(--text-color-light) !important;
+}
 h1, p {
     margin: 0;
 }
@@ -251,6 +255,19 @@ a {
     text-decoration: none;
 }
 
+.list-group .list-group-item{
+  background-color: var(--body-color);
+  color: var(--text-color-light);
+}
+
+.category-table td{
+  color: var(--text-color-light);
+  background-color: var(--body-color);
+}
+.admin-dash{
+  color: var(--text-color-light);
+  background-color: var(--body-color);
+}
 
   .neon__container{
     display: flex;

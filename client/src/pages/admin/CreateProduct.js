@@ -75,6 +75,7 @@ const CreateProduct = () => {
             <h1>Create Product</h1>
             <div className="m-1 w-75">
               <Select
+                style={{color:"#ffffff", backgroundColor:"#020818"}}
                 placeholder="Select a category"
                 size="large"
                 showSearch

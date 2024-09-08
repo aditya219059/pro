@@ -98,11 +98,11 @@ const CreateCategory = () => {
               <CategoryForm handleCreate={handleCreate} value={name} setValue={setName} />
             </div>
             <div className="w-75">
-              <table className="table">
+              <table className="table category-table">
                 <thead>
                   <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Action</th>
+                    <td scope="col">Name</td>
+                    <td scope="col">Action</td>
                   </tr>
                 </thead>
                 <tbody>
