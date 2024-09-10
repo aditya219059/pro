@@ -28,17 +28,17 @@ const CategoryProduct = () => {
         <div className='container'>
             <h5 className='text-center'>{category?.name}</h5>    
             <h6 className='text-center'>{products?.length} results found</h6>
-            <div className='d-flex flex-wrap offset-1'>
+            <div className='d-flex flex-wrap neon__container'>
           {products?.map((p) => (
-            <div className="card m-2" style={{ width: "18rem" }} key={p._id}>
+            <div className="card neon__card" style={{ width: "18rem" }} key={p._id}>
               <img className="card-img-top" src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`} alt={p.name} />
               <div className="card-body">
-                <h5 className="card-title">{p.name}</h5>
-                <p className="card-text">
+                <h5 className="card-title neon__title">{p.name}</h5>
+                <p className="neon__description">
                     {p.description.substring(0, 30)}...
                 </p>
                 <p className="card-text">
-                    $ {p.price}
+                    ${p.price}
                 </p>
                 <button class="btn btn-primary ms-1" onClick={() => navigate(`/product/${p.slug}`)}>More Details</button>
                 <button class="btn btn-secondary ms-1">Add to Cart</button>
