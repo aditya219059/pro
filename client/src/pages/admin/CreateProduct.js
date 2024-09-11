@@ -73,8 +73,15 @@ const CreateProduct = () => {
           </div>
           <div className="col-md-9">
             <h1>Create Product</h1>
-            <div className="m-1 w-75">
+            <div className="m-1 w-75" style={{color:"black"}}>
+            <select className="btn btn-outline-secondary col-md-12" placeholder="Select a category">
+              <option selected disabled>Choose a category</option>
+              <option>hello</option>
+              <option>hru</option>
+              <option>bye</option>
+            </select>
               <Select
+              style={{color:"black"}}
                 placeholder="Select a category"
                 size="large"
                 showSearch
