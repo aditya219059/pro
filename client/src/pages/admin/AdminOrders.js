@@ -4,7 +4,7 @@ import AdminMenu from "../../components/Layout/AdminMenu";
 import { useAuth } from "../../context/auth";
 import axios from "axios";
 import moment from "moment";
-import { Select } from "antd";
+import { Select, ConfigProvider, Space } from "antd";
 const { Option } = Select;
 
 const AdminOrders = () => {
@@ -60,9 +60,9 @@ const AdminOrders = () => {
           <h1 className="text-center">All Orders</h1>
           {orders?.map((o, i) => {
             return (
-              <div className="border-shadow">
-                <table className="table">
-                  <thead>
+              <div className="border-shadow bg-transparent">
+                <table className="table table-dark">
+                  <thead className="">
                     <tr>
                       <th scope="col">#</th>
                       <th scope="col">Status</th>
@@ -76,16 +76,29 @@ const AdminOrders = () => {
                     <tr>
                       <td>{i + 1}</td>
                       <td>
-                        <Select
-                          onChange={(value) => handleChange(value, o._id)}
-                          defaultValue={o?.status}
+                        <ConfigProvider
+                          theme={{
+                            token: {
+                              colorBgBase: "transparent",
+                              // optionSelectedBg: "transparent",
+                              // optionActiveBg: "transparent",
+                              // optionSelectedColor:"rgba(0, 0, 0, 0.88)"
+                            },
+                          }}
                         >
-                          {status.map((s, i) => (
-                            <Option key={i} value={s}>
-                              {s}
-                            </Option>
-                          ))}
-                        </Select>
+                          <Space>
+                            <Select
+                              onChange={(value) => handleChange(value, o._id)}
+                              defaultValue={o?.status}
+                            >
+                              {status.map((s, i) => (
+                                <Option key={i} value={s}>
+                                  {s}
+                                </Option>
+                              ))}
+                            </Select>
+                          </Space>
+                        </ConfigProvider>
                       </td>
                       <td>{o?.buyer?.name}</td>
                       <td>{moment(o?.createdAt).fromNow()}</td>
@@ -95,7 +108,10 @@ const AdminOrders = () => {
                   </tbody>
                 </table>
                 {o?.products?.map((p, i) => (
-                  <div className="row mb-2 p-3 card flex-row neon__card" key={p._id}>
+                  <div
+                    className="row mb-2 p-3 card flex-row neon__card"
+                    key={p._id}
+                  >
                     <div className="col-md-4">
                       <img
                         className="card-img-top"
@@ -103,10 +119,22 @@ const AdminOrders = () => {
                         alt={p.name}
                       />
                     </div>
-                    <div className="col-md-8" style={{fontSize:"2rem"}}>
-                      <p className="neon__title" style={{fontSize:"2rem"}}>{p.name}</p>
-                      <p className="neon__description"style={{fontSize:"1rem"}}>{p.description}</p>
-                      <p className="neon__description"style={{fontSize:"1rem"}}>Price : {p.price}</p>
+                    <div className="col-md-8" style={{ fontSize: "2rem" }}>
+                      <p className="neon__title" style={{ fontSize: "2rem" }}>
+                        {p.name}
+                      </p>
+                      <p
+                        className="neon__description"
+                        style={{ fontSize: "1rem" }}
+                      >
+                        {p.description}
+                      </p>
+                      <p
+                        className="neon__description"
+                        style={{ fontSize: "1rem" }}
+                      >
+                        Price : {p.price}
+                      </p>
                     </div>
                   </div>
                 ))}

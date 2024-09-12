@@ -3,7 +3,7 @@ import AdminMenu from "../../components/Layout/AdminMenu";
 import Layout from "../../components/Layout/Layout";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { Select } from "antd";
+import { ConfigProvider, Select, Space } from "antd";
 import { useNavigate } from "react-router-dom";
 
 const { Option } = Select;
@@ -42,28 +42,29 @@ const CreateProduct = () => {
     e.preventDefault();
     try {
       const productData = new FormData();
-      productData.append("name", name)
-      productData.append("description", description)
-      productData.append("price", price)
-      productData.append("quantity", quantity)
-      productData.append("category", category)
-      productData.append("photo", photo)
-      const {data} = axios.post(`${process.env.REACT_APP_API}/api/v1/product/create-product`, productData );
-      if(data?.success) {
-        toast.error(data?.message)
-      }
-      else{
+      productData.append("name", name);
+      productData.append("description", description);
+      productData.append("price", price);
+      productData.append("quantity", quantity);
+      productData.append("category", category);
+      productData.append("photo", photo);
+      const { data } = axios.post(
+        `${process.env.REACT_APP_API}/api/v1/product/create-product`,
+        productData
+      );
+      if (data?.success) {
+        toast.error(data?.message);
+      } else {
         setTimeout(() => {
-          toast.success("Product Created Successfully")
-          
+          toast.success("Product Created Successfully");
         }, 400);
-        navigate('/dashboard/admin/products')
+        navigate("/dashboard/admin/products");
       }
     } catch (error) {
-      console.log(error)
-      toast.error("Something went wrong")
+      console.log(error);
+      toast.error("Something went wrong");
     }
-  }
+  };
   return (
     <Layout title={"Dashboard - Create Product"}>
       <div className="container-fluid m-3 p-3">
@@ -73,15 +74,25 @@ const CreateProduct = () => {
           </div>
           <div className="col-md-9">
             <h1>Create Product</h1>
-            <div className="m-1 w-75" style={{color:"black"}}>
-            <select className="btn btn-outline-secondary col-md-12" placeholder="Select a category">
-              <option selected disabled>Choose a category</option>
-              <option>hello</option>
-              <option>hru</option>
-              <option>bye</option>
-            </select>
+            <div className="m-1 w-75" style={{ color: "black" }}>
+              {/* <select
+                className="btn btn-outline-secondary col-md-12 mb-3"
+                onChange={(value) => {
+                  setCategory(value);
+                }}
+              >
+                <option selected disabled value={"none"}>
+                  Choose a category
+                </option>
+                {categories?.map((c) => (
+                  <option key={c._id} value={c._id}>
+                    {c.name}
+                  </option>
+                ))}
+              </select> */}
+              <ConfigProvider>
+                <Space>
               <Select
-              style={{color:"black"}}
                 placeholder="Select a category"
                 size="large"
                 showSearch
@@ -96,6 +107,8 @@ const CreateProduct = () => {
                   </Option>
                 ))}
               </Select>
+              </Space>
+              </ConfigProvider>
               <div className="mb-3">
                 <label className="btn btn-outline-secondary col-md-12">
                   {photo ? photo.name : "Upload Photo"}
@@ -123,25 +136,57 @@ const CreateProduct = () => {
                 )}
               </div>
               <div className="mb-3">
-                <input type="text" value={name} placeholder="Write a product name" className="form-control" onChange={(e) => setName(e.target.value)}/>
+                <input
+                  type="text"
+                  value={name}
+                  placeholder="Write a product name"
+                  className="form-control"
+                  onChange={(e) => setName(e.target.value)}
+                />
               </div>
               <div className="mb-3">
-                <textarea type="text" value={description} placeholder="Write a product description" className="form-control" onChange={(e) => setDescription(e.target.value)}/>
+                <textarea
+                  type="text"
+                  value={description}
+                  placeholder="Write a product description"
+                  className="form-control"
+                  onChange={(e) => setDescription(e.target.value)}
+                />
               </div>
               <div className="mb-3">
-                <input type="text" value={price} placeholder="Write a product price" className="form-control" onChange={(e) => setPrice(e.target.value)}/>
+                <input
+                  type="text"
+                  value={price}
+                  placeholder="Write a product price"
+                  className="form-control"
+                  onChange={(e) => setPrice(e.target.value)}
+                />
               </div>
               <div className="mb-3">
-                <input type="number" value={quantity} placeholder="Write a product Quantity" className="form-control" onChange={(e) => setQuantity(e.target.value)}/>
+                <input
+                  type="number"
+                  value={quantity}
+                  placeholder="Write a product Quantity"
+                  className="form-control"
+                  onChange={(e) => setQuantity(e.target.value)}
+                />
               </div>
               <div className="mb-3">
-                <Select className="form-select mb-3" placeholder="Select shipping" size="large" showSearch onChange={(value) => setShipping(value)}>
+                <Select
+                  className="form-select mb-3"
+                  placeholder="Select shipping"
+                  size="large"
+                  showSearch
+                  onChange={(value) => setShipping(value)}
+                >
                   <Option value="1">Yes</Option>
                   <Option value="0">No</Option>
                 </Select>
               </div>
               <div className="mb-3">
-                <button className="btn btn-primary" onClick={handleCreate}>Create Product</button>
+                <button className="btn btn-primary" onClick={handleCreate}>
+                  Create Product
+                </button>
               </div>
             </div>
           </div>
