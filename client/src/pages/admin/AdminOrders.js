@@ -72,7 +72,7 @@ const AdminOrders = () => {
                       <th scope="col">Quantity</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody className="">
                     <tr>
                       <td>{i + 1}</td>
                       <td>
@@ -114,7 +114,7 @@ const AdminOrders = () => {
                   >
                     <div className="col-md-4">
                       <img
-                        className="card-img-top"
+                        className=""
                         src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                         alt={p.name}
                       />

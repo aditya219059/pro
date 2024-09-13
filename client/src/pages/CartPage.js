@@ -169,7 +169,7 @@ const CartPage = () => {
             )}
             <div className="mt-2">
               {!clientToken || !cart?.length ? (
-                "Cart is empty"
+                "Payment method will show up if your cart is not empty"
               ) : (
                 <>
                   <DropIn

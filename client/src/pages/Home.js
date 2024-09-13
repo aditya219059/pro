@@ -179,6 +179,7 @@ const Home = () => {
                     More Details
                   </button>
                   <button
+                title="Add to cart"
                     className="btn btn-secondary ms-1 neon__button cb"
                     onClick={() => {
                       setCart([...cart, p]);

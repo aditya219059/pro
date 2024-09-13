@@ -294,6 +294,10 @@ a {
   .butbox {
     display: flex;
   }
+  .order-card{
+    max-width: 48%;
+    max-height: 20%;
+  }
 
   .neon__icon{
     width: 120px;
@@ -346,9 +350,15 @@ a {
     padding: 1rem;
     border-radius: 1rem;
 }
-/* .cb:hover {
-    background-color: rgba(255, 255, 0, 0.527);
-} */
+.cb:hover {
+    background-color: rgba(238, 238, 19, 0.957);
+}
+.pD_ci{
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
 
 .neon__button:hover {
     box-shadow: var(--box-shadow-inset-button-hover);

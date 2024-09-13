@@ -3,7 +3,7 @@ import AdminMenu from "../../components/Layout/AdminMenu";
 import Layout from "../../components/Layout/Layout";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { Select } from "antd";
+import { ConfigProvider, Select, Space } from "antd";
 import { useNavigate, useParams } from "react-router-dom";
 
 const { Option } = Select;
@@ -109,22 +109,35 @@ const UpdateProduct = () => {
           <div className="col-md-9">
             <h1>Update Product</h1>
             <div className="m-1 w-75">
-              <Select
-                placeholder="Select a category"
-                size="large"
-                showSearch
-                className="from-select mb-3 w-100"
-                onChange={(value) => {
-                  setCategory(value);
+            <ConfigProvider
+                theme={{
+                  token: {
+                    colorBgBase: "transparent",
+                    lineWidth: 1,
+                    // optionSelectedBg: "transparent",
+                    // optionActiveBg: "transparent",
+                    // optionSelectedColor:"rgba(0, 0, 0, 0.88)"
+                  },
                 }}
-                value={category}
               >
-                {categories?.map((c) => (
-                  <Option key={c._id} value={c._id}>
-                    {c.name}
-                  </Option>
-                ))}
-              </Select>
+                <Space>
+                  <Select
+                    placeholder="Select a category"
+                    size="large"
+                    showSearch
+                    className="from-select mb-3 w-100"
+                    onChange={(value) => {
+                      setCategory(value);
+                    }}
+                  >
+                    {categories?.map((c) => (
+                      <Option key={c._id} value={c._id}>
+                        {c.name}
+                      </Option>
+                    ))}
+                  </Select>
+                </Space>
+              </ConfigProvider>
               <div className="mb-3">
                 <label className="btn btn-outline-secondary col-md-12">
                   {photo ? photo.name : "Upload Photo"}
@@ -171,12 +184,6 @@ const UpdateProduct = () => {
               </div>
               <div className="mb-3">
                 <input type="number" value={quantity} placeholder="Write a product Quantity" className="form-control" onChange={(e) => setQuantity(e.target.value)}/>
-              </div>
-              <div className="mb-3">
-                <Select className="form-select mb-3" placeholder="Select shipping" size="large" showSearch onChange={(value) => setShipping(value)} value={shipping? "Yes": "No"}>
-                  <Option value="1">Yes</Option>
-                  <Option value="0">No</Option>
-                </Select>
               </div>
               <div className="mb-3">
                 <button className="btn btn-primary" onClick={handleUpdate}>Update Product</button>

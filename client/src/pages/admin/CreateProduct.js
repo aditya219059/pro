@@ -90,24 +90,34 @@ const CreateProduct = () => {
                   </option>
                 ))}
               </select> */}
-              <ConfigProvider>
-                <Space>
-              <Select
-                placeholder="Select a category"
-                size="large"
-                showSearch
-                className="from-select mb-3 w-100"
-                onChange={(value) => {
-                  setCategory(value);
+              <ConfigProvider
+                theme={{
+                  token: {
+                    colorBgBase: "transparent",
+                    lineWidth: 1,
+                    // optionSelectedBg: "transparent",
+                    // optionActiveBg: "transparent",
+                    // optionSelectedColor:"rgba(0, 0, 0, 0.88)"
+                  },
                 }}
               >
-                {categories?.map((c) => (
-                  <Option key={c._id} value={c._id}>
-                    {c.name}
-                  </Option>
-                ))}
-              </Select>
-              </Space>
+                <Space>
+                  <Select
+                    placeholder="Select a category"
+                    size="large"
+                    showSearch
+                    className="from-select mb-3 w-100"
+                    onChange={(value) => {
+                      setCategory(value);
+                    }}
+                  >
+                    {categories?.map((c) => (
+                      <Option key={c._id} value={c._id}>
+                        {c.name}
+                      </Option>
+                    ))}
+                  </Select>
+                </Space>
               </ConfigProvider>
               <div className="mb-3">
                 <label className="btn btn-outline-secondary col-md-12">
@@ -170,18 +180,6 @@ const CreateProduct = () => {
                   className="form-control"
                   onChange={(e) => setQuantity(e.target.value)}
                 />
-              </div>
-              <div className="mb-3">
-                <Select
-                  className="form-select mb-3"
-                  placeholder="Select shipping"
-                  size="large"
-                  showSearch
-                  onChange={(value) => setShipping(value)}
-                >
-                  <Option value="1">Yes</Option>
-                  <Option value="0">No</Option>
-                </Select>
               </div>
               <div className="mb-3">
                 <button className="btn btn-primary" onClick={handleCreate}>
