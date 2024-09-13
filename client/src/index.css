@@ -359,6 +359,9 @@ a {
   justify-content: center !important;
   align-items: center !important;
 }
+.categories{
+  width: 20rem;
+}
 
 .neon__button:hover {
     box-shadow: var(--box-shadow-inset-button-hover);
