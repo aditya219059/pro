@@ -49,11 +49,16 @@ Navbar CSS
   font-style: normal;
   font-size: 17px;
   line-height: 26px;
-  background-color: var(--body-color) !important;
+  background: transparent !important;
+  backdrop-filter: blur(10px);
+  /* background-color: var(--body-color) !important; */
   text-transform: uppercase;
   box-shadow: 0 8px 6px -6px gray;
   -webkit-box-shadow: 0 8px 6px -6px gray;
   border-bottom: 0px gray !important;
+}
+.sticky-top{
+  top: 6rem !important;
 }
 .form-control{
   color: var(--text-color) !important;
@@ -74,9 +79,10 @@ Navbar CSS
 }
 
 .navbar-brand{
-  font-weight: 700;
+  font-weight: 1000;
+  font-size: 2em;
   font-family: 'roboto', sans-serif;
-  letter-spacing: 3px;
+  letter-spacing: 0.3rem;
 }
 
 /* footer */
@@ -91,6 +97,7 @@ Navbar CSS
     #000000
   );
   background: linear-gradient(to right, #434343, #000000);
+  bottom: 0;
 }
 
 .footer a {
@@ -135,14 +142,39 @@ Navbar CSS
   color: white;
   background-color: black;
 }
-
+::placeholder{
+  color: var(--text-color-light) !important;
+  opacity: 0.4 !important;
+}
 /* register */
 .register {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 70vh;
+  height: 90vh;
+  /* width: 100%; */
+}
+.contact{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+.contact-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+.form-group{
+  width: 100%;
+}
+.ask{
+  min-height: 30%;
+  resize: none;
 }
 
 .login {
@@ -150,7 +182,7 @@ Navbar CSS
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 70vh;
+  height: 90vh;
 }
 
 .product_link {
@@ -287,8 +319,8 @@ a {
     text-align: center;
     align-items: center;
     justify-content: space-between;
-    margin-right: 2rem;
-    margin-bottom: 2rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
     /* display: flex; */
   }
   .butbox {

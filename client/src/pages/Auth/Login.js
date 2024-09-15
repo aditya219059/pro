@@ -75,7 +75,7 @@ const Login = () => {
           <div className="mb-3">
             <button
               type="button"
-              className="btn btn-primary"
+              className="btn btn-danger form-group"
               onClick={() => {
                 navigate("/forgot-password");
               }}
@@ -84,7 +84,7 @@ const Login = () => {
             </button>
           </div>
 
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary form-group">
             Login
           </button>
         </form>

@@ -123,7 +123,8 @@ const Home = () => {
   return (
     <Layout title={"Home - Ecommerce"}>
       <div className="row">
-        <div className="col-md-3 mt-3">
+        <div className="col-md-2 mt-3">
+          <div className="sticky-top">
           <h4 className="text-center">Filter By Category</h4>
           <div className="d-flex flex-column">
             {categories?.map((c) => (
@@ -153,9 +154,10 @@ const Home = () => {
               {" "}
               Reset Filter
             </button>
+            </div>
           </div>
         </div>
-        <div className="col-md-9">
+        <div className="col-md-10">
           <h1 className="text-center">All Products</h1>
           <div className="d-flex flex-wrap neon__container">
             {products?.map((p) => (

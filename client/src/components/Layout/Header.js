@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi";
+import { BsWatch } from "react-icons/bs";
 import { useAuth } from "../../context/auth";
 import toast from "react-hot-toast";
 import SearchInput from "../Form/SearchInput";
@@ -41,10 +42,10 @@ const Header = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <Link to="/" className="navbar-brand" href="#">
-              <FiShoppingCart
-                style={{ marginRight: "10px", marginTop: "3px" }}
-              />{" "}
-              Ecommerce app
+              <BsWatch
+                style={{ marginRight: "1rem", marginTop: "3px", marginLeft: "1rem", width: "2rem", height: "2rem" }}
+              />
+              <p style={{marginTop: "3.5px"}}>Momento</p>
             </Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <SearchInput />
