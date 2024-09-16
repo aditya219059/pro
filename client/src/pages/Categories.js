@@ -12,7 +12,7 @@ const Categories = () => {
             <div className='d-flex flex-column'>
                 {categories?.map((c) => (
                     <div className='p-2' key={c._id}>
-                        <Link to={`/category/${c.slug}`} className='btn btn-dark categories'>
+                        <Link to={`/category/${c.slug}`} className='btn btn-primary categories'>
                             {c.name}
                         </Link>
                     </div>

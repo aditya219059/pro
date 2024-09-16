@@ -38,7 +38,7 @@ const CategoryProduct = () => {
           {products?.map((p) => (
             <div
               className="card neon__card"
-              style={{ width: "18rem" }}
+              style={{ width: "16rem" }}
               key={p._id}
             >
               <img

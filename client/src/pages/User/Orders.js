@@ -36,8 +36,8 @@ const Orders = () => {
             <h1 className="text-center">All Orders</h1>
             {orders?.map((o, i) => {
               return (
-                <div className="border-shadow">
-                  <table className="table">
+                <div className="border-shadow bg-transparent">
+                  <table className="table table-dark">
                     <thead>
                       <tr>
                         <th scope="col">#</th>
@@ -60,7 +60,7 @@ const Orders = () => {
                     </tbody>
                   </table>
                   {o?.products?.map((p, i) => (
-                    <div className="row mb-2 p-3 card flex-row" key={p._id}>
+                    <div className="row mb-2 p-3 card flex-row neon__card" key={p._id}>
                       <div className="col-md-4">
                         <img
                           className="card-img-top"

@@ -155,6 +155,20 @@ Navbar CSS
   height: 90vh;
   /* width: 100%; */
 }
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+.reset-pass {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
 .contact{
   display: flex;
   flex-direction: column;
@@ -177,13 +191,6 @@ Navbar CSS
   resize: none;
 }
 
-.login {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 90vh;
-}
 
 .product_link {
   text-decoration: none !important;
@@ -296,7 +303,8 @@ a {
   color: var(--text-color-light);
   background-color: var(--body-color);
 }
-.admin-dash{
+.admin-dash,
+.dash{
   color: var(--text-color-light);
   background-color: var(--body-color);
 }
@@ -369,6 +377,10 @@ a {
     justify-content: center;
     padding: 1.25rem;
     border-radius: 1rem;
+    /* text-decoration: ; */
+}
+.reg-link{
+  color: rgb(8, 175, 252) !important;
 }
   .neon__button {
     text-decoration: none;

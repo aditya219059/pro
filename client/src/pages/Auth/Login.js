@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import axios from "axios";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link, NavLink } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useAuth } from "../../context/auth";
 
@@ -72,6 +72,10 @@ const Login = () => {
             />
           </div>
 
+
+          <button type="submit" className="btn btn-primary form-group mb-3">
+            Login
+          </button>
           <div className="mb-3">
             <button
               type="button"
@@ -83,10 +87,10 @@ const Login = () => {
               Forgot password
             </button>
           </div>
-
-          <button type="submit" className="btn btn-primary form-group">
-            Login
-          </button>
+          <br/>
+          <hr/>
+          
+          <p className="mb-3">Are you new here? Please <NavLink className="reg-link text-primary" to='/register'>Register</NavLink></p>
         </form>
       </div>
     </Layout>

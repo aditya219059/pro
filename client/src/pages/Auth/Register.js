@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const Register = () => {
@@ -115,6 +115,8 @@ const Register = () => {
             Register
           </button>
         </form>
+        
+        <p className="mb-3 mt-3">Go to <NavLink className="reg-link text-primary" to='/register'>Login</NavLink></p>
       </div>
     </Layout>
   );
