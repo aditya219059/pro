@@ -161,7 +161,7 @@ const Home = () => {
           <h1 className="text-center">All Products</h1>
           <div className="d-flex flex-wrap neon__container">
             {products?.map((p) => (
-              <div className="card neon__card" style={{ width: "18rem" }} key={p._id}>
+              <div className="card neon__card" style={{ width: "16rem" }} key={p._id}>
                 <img
                   className=""
                   src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}

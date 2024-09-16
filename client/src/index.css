@@ -304,6 +304,7 @@ a {
   .neon__container{
     display: flex;
     align-items: center;
+    /* width: 100%; */
     /* grid-template-columns: repeat(auto-fit, minmax(312px, 1fr)); */
     /* row-gap: 3.5rem; */
     /* column-gap: 2.5rem; */
@@ -314,12 +315,12 @@ a {
     color: var(--text-color-light);
     box-shadow: var(--box-shadow-inset);
     backdrop-filter: var(--filter-blur);
-    padding: 3.5rem 0rem 2rem;
-    border-radius: 3rem;
+    padding: 1.5rem 0rem 1.5rem;
+    border-radius: 1rem;
     text-align: center;
     align-items: center;
     justify-content: space-between;
-    margin-right: 1rem;
+    margin-right: 0.5rem;
     margin-bottom: 1rem;
     /* display: flex; */
   }
