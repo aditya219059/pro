@@ -50,6 +50,7 @@ Navbar CSS
   font-size: 17px;
   line-height: 26px;
   background: transparent !important;
+  /* opacity: 0.6; */
   backdrop-filter: blur(10px);
   /* background-color: var(--body-color) !important; */
   text-transform: uppercase;
@@ -57,6 +58,9 @@ Navbar CSS
   -webkit-box-shadow: 0 8px 6px -6px gray;
   border-bottom: 0px gray !important;
 }
+/* .navbar:hover {
+  opacity: 1;
+} */
 .sticky-top{
   top: 6rem !important;
 }
