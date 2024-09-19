@@ -114,9 +114,12 @@ const Register = () => {
           <button type="submit" className="btn btn-primary form-group">
             Register
           </button>
+        <br/>
+        <br/>
+        <hr/>
+
         </form>
-        
-        <p className="mb-3 mt-3">Go to <NavLink className="reg-link text-primary" to='/register'>Login</NavLink></p>
+        <p className="mb-3">Go to <NavLink className="reg-link text-primary" to='/login'>Login</NavLink></p>
       </div>
     </Layout>
   );
