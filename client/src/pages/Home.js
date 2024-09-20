@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/cart";
 import toast from "react-hot-toast";
 import { FiShoppingCart } from "react-icons/fi";
+import Slider from "./Slider";
 
 const Home = () => {
   const [cart, setCart] = useCart();
@@ -122,6 +123,7 @@ const Home = () => {
 
   return (
     <Layout title={"Home - Ecommerce"}>
+      <Slider />
       <div className="row">
         <div className="col-md-2 mt-3">
           <div className="sticky-top">
