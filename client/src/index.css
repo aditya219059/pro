@@ -5,6 +5,22 @@
   padding: 0;
   box-sizing: border-box;
 }
+body{
+  background-position: top;
+  background: url(./pages/assests/images/slide1.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+.word{
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  text-align: center;
+}
+.word-head{
+  vertical-align: middle;
+}
 
  /* <uniquifier>: Use a unique and descriptive class name */
 
