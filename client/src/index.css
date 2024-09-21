@@ -5,21 +5,32 @@
   padding: 0;
   box-sizing: border-box;
 }
-body{
+/* body{
   background-position: top;
   background: url(./pages/assests/images/slide1.jpg);
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
-}
+} */
 .word{
+  display: flex;
+  height: 100vh;
+  position: relative;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
   text-align: center;
 }
 .word-head{
-  vertical-align: middle;
+  font-size: 4rem;
+  position: absolute;
+  top: 5%;
+  display: flex;
+  margin: auto;
+  font-weight: 800;
+  font-family: 'roboto', sans-serif;
+  letter-spacing: 0.3rem;
+  text-shadow:1px 1px 10px white;
 }
 
  /* <uniquifier>: Use a unique and descriptive class name */

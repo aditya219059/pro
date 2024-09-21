@@ -124,9 +124,9 @@ const Home = () => {
   return (
     <Layout title={"Home - Ecommerce"}>
       {/* <Slider /> */}
-      <div className="word">
-        <h1 className="word-head" style={{height: "100vh"}}>new</h1>
-      </div>
+      {/* <div className="word">
+        <div className="word-head">MOMENTO</div>
+      </div> */}
       <div className="row">
         <div className="col-md-2 mt-3">
           <div className="sticky-top">
