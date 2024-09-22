@@ -125,7 +125,7 @@ const Home = () => {
     <Layout title={"Home - Ecommerce"}>
       <div
         className="slider"
-        style={{ width: "100%", margin: "0 auto", aspectRatio: "10 / 4" }}
+        style={{ width: "100%", margin: "0 auto", aspectRatio: "10 / 5" }}
       >
         <Slider />
       </div>

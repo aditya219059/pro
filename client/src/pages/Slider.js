@@ -33,6 +33,10 @@ const Slider = () => {
     });
   };
 
+  // setInterval(() => {
+  //   showNextImage();
+  // }, 2000);
+
   return (
     <div
       className="slide-container"
@@ -46,6 +50,7 @@ const Slider = () => {
           overflow: "hidden",
         }}
       >
+        <div className="word-head">MOMENTO</div>
         {slides.map((slide) => (
           <img
             src={slide}

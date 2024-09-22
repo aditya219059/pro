@@ -43,7 +43,7 @@ const Header = () => {
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <Link to="/" className="navbar-brand" href="#">
               <BsWatch
-                style={{ marginRight: "1rem", marginTop: "3px", marginLeft: "1rem", width: "2rem", height: "2rem" }}
+                style={{ marginRight: "1rem", marginTop: "3px", marginLeft: "1rem", width: "2rem", height: "2rem"}}
               />
               <p style={{marginTop: "3.5px"}}>Momento</p>
             </Link>
