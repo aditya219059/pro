@@ -59,7 +59,7 @@
 Navbar CSS
 */
 :root{
-  --body-color: #020318;
+  --body-color: #000000;
   --text-color: #fff;
 
   --body-font: "Poppins", sans-serif;
@@ -248,7 +248,7 @@ UNTIIL
 :root {
 
     /*========== Colors ==========*/
-    --body-color: #020318;
+    --body-color: #000000;
     --text-color-light: #FFF;
 
     /*========== Font and typography ==========*/

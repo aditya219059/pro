@@ -123,50 +123,59 @@ const Home = () => {
 
   return (
     <Layout title={"Home - Ecommerce"}>
-      {/* <Slider /> */}
+      <div
+        className="slider"
+        style={{ width: "100%", margin: "0 auto", aspectRatio: "10 / 4" }}
+      >
+        <Slider />
+      </div>
       {/* <div className="word">
         <div className="word-head">MOMENTO</div>
       </div> */}
-      <div className="row">
+      <div className="row mt-5">
         <div className="col-md-2 mt-3">
           <div className="sticky-top">
-          <h4 className="text-center">Filter By Category</h4>
-          <div className="d-flex flex-column">
-            {categories?.map((c) => (
-              <Checkbox
-                key={c._id}
-                onChange={(e) => handleFilter(e.target.checked, c._id)}
-              >
-                {c.name}
-              </Checkbox>
-            ))}
-          </div>
-          <h4 className="text-center mt-4">Filter By Price</h4>
-          <div className="d-flex flex-column">
-            <Radio.Group onChange={(e) => setRadio(e.target.value)}>
-              {Prices?.map((p) => (
-                <div key={p._id}>
-                  <Radio value={p.array}>{p.name}</Radio>
-                </div>
+            <h4 className="text-center">Filter By Category</h4>
+            <div className="d-flex flex-column">
+              {categories?.map((c) => (
+                <Checkbox
+                  key={c._id}
+                  onChange={(e) => handleFilter(e.target.checked, c._id)}
+                >
+                  {c.name}
+                </Checkbox>
               ))}
-            </Radio.Group>
-          </div>
-          <div className="d-flex flex-column">
-            <button
-              className="btn btn-danger"
-              onClick={() => window.location.reload()}
-            >
-              {" "}
-              Reset Filter
-            </button>
+            </div>
+            <h4 className="text-center mt-4">Filter By Price</h4>
+            <div className="d-flex flex-column">
+              <Radio.Group onChange={(e) => setRadio(e.target.value)}>
+                {Prices?.map((p) => (
+                  <div key={p._id}>
+                    <Radio value={p.array}>{p.name}</Radio>
+                  </div>
+                ))}
+              </Radio.Group>
+            </div>
+            <div className="d-flex flex-column">
+              <button
+                className="btn btn-danger"
+                onClick={() => window.location.reload()}
+              >
+                {" "}
+                Reset Filter
+              </button>
             </div>
           </div>
         </div>
         <div className="col-md-10">
-          <h1 className="text-center">All Products</h1>
+          {/* <h1 className="text-center">All Products</h1> */}
           <div className="d-flex flex-wrap neon__container">
             {products?.map((p) => (
-              <div className="card neon__card" style={{ width: "16rem" }} key={p._id}>
+              <div
+                className="card neon__card"
+                style={{ width: "16rem" }}
+                key={p._id}
+              >
                 <img
                   className=""
                   src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
@@ -179,25 +188,25 @@ const Home = () => {
                   </p>
                   <p className="card-text neon__description">$ {p.price}</p>
                   <div className="butbox">
-                  <button
-                    className="btn btn-primary ms-1 neon__button b"
-                    onClick={() => navigate(`/product/${p.slug}`)}
-                  >
-                    More Details
-                  </button>
-                  <button
-                title="Add to cart"
-                    className="btn btn-secondary ms-1 neon__button cb"
-                    onClick={() => {
-                      setCart([...cart, p]);
-                      localStorage.setItem("cart", JSON.stringify([...cart]));
-                      toast.success("Successfully added to cart");
-                    }}
-                  >
-                    <FiShoppingCart
-                style={{ marginRight: "2px", marginTop: "4px" }}
-              />
-                  </button>
+                    <button
+                      className="btn btn-primary ms-1 neon__button b"
+                      onClick={() => navigate(`/product/${p.slug}`)}
+                    >
+                      More Details
+                    </button>
+                    <button
+                      title="Add to cart"
+                      className="btn btn-secondary ms-1 neon__button cb"
+                      onClick={() => {
+                        setCart([...cart, p]);
+                        localStorage.setItem("cart", JSON.stringify([...cart]));
+                        toast.success("Successfully added to cart");
+                      }}
+                    >
+                      <FiShoppingCart
+                        style={{ marginRight: "2px", marginTop: "4px" }}
+                      />
+                    </button>
                   </div>
                 </div>
               </div>
