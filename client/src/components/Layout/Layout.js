@@ -15,7 +15,7 @@ const Layout = ({ children, title, description, keyword, author }) => {
         <meta name="author" content={author} />
       </Helmet>
       <Header />
-      <main style={{ minHeight: "70vh" }}>
+      <main style={{ minHeight: "90vh" }}>
         <Toaster
           toastOptions={{
             success: {
@@ -33,7 +33,9 @@ const Layout = ({ children, title, description, keyword, author }) => {
         />
         {children}
       </main>
+      <div className="foot">
       <Footer />
+      </div>
     </>
   );
 };
