@@ -14,7 +14,7 @@ import {
 } from "react-icons/lu";
 import { FaCircle, FaCircleDot } from "react-icons/fa6";
 
-const slides = [slide1, slide2, slide3, slide4, slide5];
+const slides = [slide2, slide1, slide3, slide4, slide5];
 
 const Slider = () => {
   const [idx, setIdx] = useState(0);
